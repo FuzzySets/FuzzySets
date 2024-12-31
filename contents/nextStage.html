@@ -1,0 +1,90 @@
+<template>
+  <nav class="navbar is-transparent has-background-dark is-fixed-top" role="navigation" aria-label="top navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <!-- <img class="image" src="../assets/fazy_logo.png"> -->
+        <router-link to="/">←TOP</router-link>
+      </a>
+      <!-- <router-link to="/">←TOP</router-link> -->
+      <h1 class="navbar-item is-size-3 has-text-white">
+        次回公演
+      </h1>
+    </div>
+    <!-- <div class="navbar-start">
+    </div> -->
+    <!-- <div class="navbar-end">
+      <div class="navbar-item">
+      </div>
+    </div> -->
+  </nav>
+  <container class="m-3">
+    <h1 class="columns is-size-3 is-two-thirds mt-6 ml-6">
+      長谷川健太殺人事件～It's a miniature garden's god～
+    </h1>
+
+    <div class="columns mx-6">
+        <img class="column is-one-third" src="../image/haseken_omote.jpg" />
+        <img class="column is-one-third" src="../image/haseken_ura.jpg" />
+    </div>
+    <div class="columns">
+      <div class="column is-two-thirds mx-6" width="5px">
+        <strong class="is-size-5">
+          ✦あらすじ
+        </strong><p />
+        <p>
+          {{ arasuji }}
+        </p>
+        <strong class="is-size-5">
+          ✦公演日時
+        </strong><p />
+        <strong class="is-size-5">
+          ✦出演
+        </strong><p />
+        <strong class="is-size-5">
+          ✦スタッフ
+        </strong><p />
+        <strong class="is-size-5">
+          ✦場所
+        </strong><p />
+        <strong class="is-size-5">
+          ✦チケット料金
+        </strong><p />
+        <strong class="is-size-5">
+          ✦チケット予約
+        </strong>
+      </div>
+    </div>
+      <!-- <div>
+          <input class="button is-link" value="test">test
+      </div> -->
+  </container>
+  
+  </template>
+  
+  <script setup>
+    // const arasuji =  "kokoko<br>\nlolol"
+    const arasuji = 
+      `ありそうで、 
+      この世に絶対に存在しない名前
+      「長谷川健太」。
+
+      しかし彼は「長谷川健太のいる世界」へ。
+      トラックの音が聞こえる！
+
+      長谷川健太は役者。
+      この世は舞台。
+      すなわち箱庭［Miniature Garden］。
+
+      ミステリかと思ったら大間違い。
+      アンナンノンセンス・フィクション
+      の幕開け！`
+
+  </script>
+  
+  <style scoped>
+    .p {
+      white-space: pre-wrap;
+      word-wrap:break-word;
+    }
+  </style>
+  
