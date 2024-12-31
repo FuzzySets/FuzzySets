@@ -1,0 +1,40 @@
+<template>
+    <h1 class="is-size-4 m-4">
+        Topics
+    </h1>
+    <ul class="topics">
+        <li v-for="(topic, key) in dispTopics" :key="key" class="m-4">
+            <div class="is-size-5">
+                ✦{{ topic.date }} / {{ topic.title }}
+            </div>
+            <div class="topicContent">
+                {{ topic.content }}
+            </div>
+        </li>
+    </ul>
+</template>
+
+<script setup>
+    import topics from "../assets/topics.json"
+
+    // 内容はtopics.jsonに記載する
+    const dispTopics = topics.result // dictのlist
+
+</script>
+
+<style>
+    .topics {
+        position: relative;
+        margin: 0 10px 10px 30px;
+        padding: 5px;
+        width: 90%; /* ボックス幅 */
+        background: #006633; /* ボックス背景色 */
+        color: #fff; /* 文章色 */
+        border: 8px solid #b2771f; /* 枠線 */
+        border-radius: 3px; /* 角の丸み */
+        box-shadow: 0 0 5px #333, 0 0 5px #555 inset;
+    }
+    .topicContent {
+        padding: 0 30px;
+    }
+</style>

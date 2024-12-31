@@ -1,0 +1,65 @@
+<template>
+  <Header />
+  <!-- <video id="jsVideo" playsinline muted autoplay src="../video/jsVideo.mp4">
+  </video> -->
+  <div class="columns is-centered has-background-black mt-6">
+    <img alt="Vue logo" src="../assets/fazy_logo.png">
+  </div>
+
+  <h1 class="columns is-size-1 is-centered">後手必殺ファジイ集合</h1>
+  <p class="columns is-size-4 is-centered">
+    後手必殺ファジイ集合（ごてひっさつふぁじいしゅうごう）は、北海道で活動中の劇団です。
+  </p>
+  <!-- <div class="columns is-centered">
+    <div class="column has-text-centered"><router-link to="/next">次回公演</router-link></div>
+    <div class="column has-text-centered"><router-link to="/whatfazy">後手必殺ファジイ集合とは？</router-link></div>
+    <div class="column has-text-centered"><router-link to="/other">その他コンテンツ</router-link></div>   
+  </div> -->
+  <div class="columns">
+    <div class="column">
+      <InfoPage />
+    </div>
+    <div class="column" style="height: auto;">
+      <div class="tweetLine">
+        <!--縦幅を管理したかったが、このスタイル指定は何の意味もない気がする。すいません ぎゃ -->
+        <a class="tweet" href="https://twitter.com/gotehissatsu?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">Tweets by gotehissatsu</a>
+        <component :is="'script'" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></component>
+      </div>
+    </div>
+  </div>
+  
+  <Footer />
+</template>
+
+<script setup>
+  import Header from './HeadBar.vue'
+  import Footer from './FooterBar.vue'
+  import InfoPage from './InfoPage.vue'
+
+  // ビデオを消す
+  function vanish() {
+    var vanishVideo = document.getElementById('jsVideo');
+    console.log(vanishVideo.style.display = 'none');
+  }
+  // 3秒後にビデオを消す関数を呼び出す
+  window.onload = function() {
+    setTimeout(function(){vanish();}, 3000);
+  }
+</script>
+
+<style scoped>
+/*ビデオ*/
+#jsVideo {
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    z-index: 256;
+}
+</style>
+<style>
+  .tweetLine {
+    width: 90%;
+    padding: 10px;
+  }
+</style>
