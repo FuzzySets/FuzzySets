@@ -1,0 +1,31 @@
+title_logo_and_name{
+    display: flex;
+}
+
+name_Fazy{
+    vertical-align: top;
+    color: aliceblue;
+}
+
+logo_top{
+    vertical-align: top;
+}
+
+image {
+    width: max-content;
+    height: max-content;
+    margin-left: 10px;
+}
+headTop {
+    color: #ccc;
+}
+headTop:hover {
+    color: #fff;
+}
+headItem {
+    color: #ccc;
+}
+headItem:hover {
+    color: #ccc;
+    border-bottom: 1px solid #fff;
+}
