@@ -1,31 +1,68 @@
-title_logo_and_name{
+body {
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+.bar {
+    background-color: #303030;
     display: flex;
+    height: auto;
 }
 
-name_Fazy{
-    vertical-align: top;
-    color: aliceblue;
+.titleLogoAndName {
+    display: flex;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
 }
 
-logo_top{
-    vertical-align: top;
+.logoTop {
+    margin: 5px;
+    max-width: 50px;
+    max-height: 50px;
 }
 
-image {
-    width: max-content;
-    height: max-content;
+.nameFuzzy {
+    color: #eeeeee;
+    margin: auto;
+    font-family: "BIZ UDゴシック";
+    font: bold;
+    font-size: 30px;
+}
+
+.content {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+.postSource {
+    align-self: flex-end;
+}
+
+.links {
+    margin-left: auto;
+    display: flex;
+    margin: 10px;
+}
+.linkItem {
+    margin: 5px;
+}
+.iconImg {
+    width: 30px;
+    height: 30px;
+}
+.cr {
+    color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
     margin-left: 10px;
-}
-headTop {
-    color: #ccc;
-}
-headTop:hover {
-    color: #fff;
-}
-headItem {
-    color: #ccc;
-}
-headItem:hover {
-    color: #ccc;
-    border-bottom: 1px solid #fff;
 }
