@@ -16,16 +16,42 @@ image {
     height: max-content;
     margin-left: 10px;
 }
-headTop {
-    color: #ccc;
+
+.content {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 5px;
 }
-headTop:hover {
-    color: #fff;
+
+.postSource {
+    align-self: flex-end;
 }
-headItem {
-    color: #ccc;
+
+.links {
+    margin-left: auto;
+    display: flex;
+    margin: 10px;
 }
-headItem:hover {
-    color: #ccc;
-    border-bottom: 1px solid #fff;
+.linkItem {
+    margin: 5px;
+}
+.iconImg {
+    width: 30px;
+    height: 30px;
+}
+.cr {
+    color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 10px;
+}
+.menuItem {
+    display: inline-block;
+    margin-right: 12px;
 }
