@@ -66,3 +66,7 @@ body {
     margin-right: auto;
     margin-left: 10px;
 }
+.menuItem {
+    display: inline-block;
+    margin-right: 12px;
+}
