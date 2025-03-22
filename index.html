@@ -15,19 +15,7 @@
 
   <body>
     <!-- ヘッダー -->
-    <div class="bar">
-      <div class="titleLogoAndName">
-        <img class="logoTop" src="src/image/info/company/fuzzyLogo.png" alt="FuzzySets">
-        <div class="nameFuzzy">後手必殺ファジィ集合</div>
-      </div>
-      <div class="p-1">
-        <ul class="mt-3">
-          <li class="menuItem"><a href="src/menu/aboutfuzzy.html">後手必殺ファジイ集合とは？</a></li>
-          <li class="menuItem"><a href="src/menu/products.html">作品</a></li>
-          <li class="menuItem"><a href="src/menu/drama.html">前回公演</a></li>
-        </ul>
-      </div>
-    </div>
+    <div id="header"></div>
 
     <!-- コンテンツ -->
     <div class="content">
@@ -39,28 +27,33 @@
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
     </div>
+
     <!-- フッター -->
-    <div class="bar">
-      <div class="cr">
-        Copyright © 2025 後手必殺ファジィ集合 Y.S. & R.K. All Rights Reserved.
-      </div>
-      <ul class="links">
-        <li class="linkItem">
-          <a href="https://twitter.com/gotehissatsu" target="_blank" rel="noopener">
-            <img class="iconImg" src="src/image/contacts/x_logo-white.png">
-          </a>
-        </li>
-        <li class="linkItem">
-          <a href="https://www.instagram.com/gotehissatsu_sapporo/" target="_blank" rel="noopener">
-            <img class="iconImg" src="src/image/contacts/instaglam.png">
-          </a>
-        </li>
-        <li class="linkItem">
-          <a href="https://www.youtube.com/@%E5%BE%8C%E6%89%8B%E5%BF%85%E6%AE%BA%E3%83%95%E3%82%A1%E3%82%B8%E3%82%A3%E9%9B%86%E5%90%88" target="_blank" rel="noopener">
-            <img class="iconImg" src="src/image/contacts/youtube.png">
-          </a>
-        </li>
-      </ul>
-    </div>
+    <div id="footer"></div>
+
+    <script>
+      Promise.all([
+        fetch('src/templates/headerBar.html').then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to load header');
+          }
+          return response.text();
+        }),
+        fetch('src/templates/footerBar.html').then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to load footer');
+          }
+          return response.text();
+        })
+      ])
+      .then(([headerHtml, footerHtml]) => {
+        // 取得したHTMLをそれぞれの要素に挿入
+        document.getElementById('header').innerHTML = headerHtml;
+        document.getElementById('footer').innerHTML = footerHtml;
+      })
+      .catch(error => {
+        console.error('Error loading templates:', error);
+      });
+    </script>
   </body>
 </html>
