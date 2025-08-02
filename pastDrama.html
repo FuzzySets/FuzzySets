@@ -18,10 +18,10 @@
 <h1 id="logo"><a href="index.html"><img style="height: 32px" src="images/fuzzy_logo.png" alt="後手必殺ファジィ集合"></a></h1>
 <nav id="menubar">
 <ul>
-<li><a href="news.html">News</a></li>
-<li class="current"><a href="works.html">Works</a></li>
 <li><a href="company.html">Company</a></li>
+<li class="current"><a href="works.html">Works</a></li>
 <li><a href="member.html">Member</a></li>
+<li><a href="news.html">News</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
@@ -47,14 +47,50 @@
 <div id="contents">
 
 <article>
+	<h2>演劇・過去公演</h2>
 
-<h2>Works<span>業務内容</span></h2>
+	<!-- <figure class="c mb30">
+		<img src="images/sample/sample1_big.jpg" alt="写真の説明を入れます">
+	</figure> -->
+	
+	<!-- 公演1 -->
+	<section class="performance">
+		<div class="performance-inner">
+		  <div class="performance-images">
+			<img src="images/works/pastDrama/ieniwa_omote.jpg" alt="公演1の写真1" class="performance-img">
+			<img src="images/works/pastDrama/ieniwa_ura.jpg" alt="公演1の写真2" class="performance-img">
+		  </div>
+		  <div class="performance-text">
+			<h3>『ieniwa()』</h3>
+			<p class="performance-summary">
+			  星と夜の境界を描いた幻想的な物語。音と光が織りなす静寂の世界を体感せよ。
+			</p>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- 公演2 -->
+	  <section class="performance">
+		<div class="performance-inner">
+		  <div class="performance-images">
+			<img src="images/works/pastDrama/hasesatsu_omote.jpg" alt="ハセ殺表" class="performance-img">
+			<img src="images/works/pastDrama/hasesatsu_ura.jpg" alt="ハセ殺裏" class="performance-img">
+		  </div>
+		  <div class="performance-text">
+			<h3>『長谷川健太殺人事件』</h3>
+			<p class="performance-summary">
+			  目覚めない街で交差する記憶と未来。無限に続く時間の中で見つけた一筋の光。
+			</p>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- 公演の追加はここにどんどん追加できます -->
+	
+	</article>
+<article>
 
-<figure class="c mb30">
-<img src="images/sample/sample1_big.jpg" alt="写真の説明を入れます">
-</figure>
-
-<table class="ta1">
+<!--　<table class="ta1">
 <caption>見出しが必要であればここを使います</caption>
 <tr>
 <th>サンプル見出し</th>
@@ -78,7 +114,7 @@
 </tr>
 </table>
 
-</article>
+</article> -->
 
 <p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
 
@@ -102,6 +138,55 @@ if (OCwindowWidth() <= 800) {
 	open_close("menubar_hdr", "menubar-s");
 }
 </script>
+
+<!-- CSS（既存のstyle.cssに追加するとよりきれいに表示できます） -->
+<style>
+	.performance {
+		/* margin-bottom: 40px; */
+		padding-bottom: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+	.performance-inner {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+	.performance-images {
+		display: flex;
+		flex-direction: row; /* 横並びに変更 */
+		gap: 10px;
+		flex: 0 0 auto;
+	}
+	.performance-img {
+		width: 200px;
+		height: auto;
+		border-radius: 4px;
+	}
+	.performance-text {
+		flex: 1 1 0%;
+		min-width: 200px;
+	}
+	.performance-text h3 {
+		margin-top: 0;
+	}
+	.performance-summary {
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 600px) {
+		.performance-inner {
+		flex-direction: column;
+		}
+		.performance-images {
+		justify-content: center;
+		flex-wrap: wrap;
+		}
+		.performance-img {
+		width: 45%;
+		}
+	}
+</style>
 
 </body>
 </html>
