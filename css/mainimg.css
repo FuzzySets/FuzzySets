@@ -54,27 +54,27 @@
 }
 /*１枚目画像*/
 #img1 {
-	animation-delay: 2s;	/*2秒遅れてアニメーションをスタート*/
-	background: url(../images/1.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
-	background: url(../images/1.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
+	animation-delay: 1s;	/*2秒遅れてアニメーションをスタート*/
+	background: url(../images/company.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
+	background: url(../images/company.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 /*２枚目画像*/
 #img2 {
-	animation-delay: 2.2s;	/*2.2秒遅れてアニメーションをスタート*/
-	background: url(../images/2.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
-	background: url(../images/2.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
+	animation-delay: 1.2s;	/*2.2秒遅れてアニメーションをスタート*/
+	background: url(../images/works.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
+	background: url(../images/works.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 /*３枚目画像*/
 #img3 {
-	animation-delay: 2.4s;	/*2.4秒遅れてアニメーションをスタート*/
-	background: url(../images/3.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
-	background: url(../images/3.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
+	animation-delay: 1.4s;	/*2.4秒遅れてアニメーションをスタート*/
+	background: url(../images/member.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
+	background: url(../images/member.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 /*４枚目画像*/
 #img4 {
-	animation-delay: 2.6s;	/*2.6秒遅れてアニメーションをスタート*/
-	background: url(../images/4.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
-	background: url(../images/4.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
+	animation-delay: 1.6s;	/*2.6秒遅れてアニメーションをスタート*/
+	background: url(../images/contact.jpg) no-repeat center center;			/*背景画像の読み込み（古いブラウザ用）*/
+	background: url(../images/contact.jpg) no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 
 
