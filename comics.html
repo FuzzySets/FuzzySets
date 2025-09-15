@@ -18,10 +18,10 @@
 <h1 id="logo"><a href="index.html"><img style="height: 32px" src="images/fuzzy_logo.png" alt="後手必殺ファジィ集合"></a></h1>
 <nav id="menubar">
 <ul>
-<li><a href="news.html">News</a></li>
-<li class="current"><a href="works.html">Works</a></li>
 <li><a href="company.html">About us</a></li>
+<li class="current"><a href="works.html">Works</a></li>
 <li><a href="member.html">Member</a></li>
+<li><a href="news.html">News</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
@@ -37,50 +37,45 @@
 </ul>
 </header>
 
-<nav id="menubar-s">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="news.html">News</a></li>
-<li><a href="works.html">Works</a></li>
-<li><a href="company.html">About us</a></li>
-<li><a href="member.html">Member</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-
 <div id="contents">
 
 <article>
+<p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
+<h2>漫画<span>comics</span></h2>
+<section class="performance">
+	<div class="performance-inner">
+	  <div class="performance-text">
+		<h3>『隣人はマジシャン』</h3>
+		<p class="performance-summary">
+		  2020年~連載中。公式Xにて、日曜日に更新。<br>
+		  日常を過ごす佐々木さんと、お隣に住んでいるマジシャンさんの交流を描いています。<br>
+		</p>
+		<p>
+			<a href="rinjin_ha_magician.html?episode=135-138">・135回〜138回</a>
+		</p>
+	  </div>
+	  <!-- <div class="performance-images"> -->
+		<!-- <img src="images/works/pastDrama/ieniwa_omote.jpg" alt="ieniwa表" class="performance-img"> -->
+		<!-- <img src="images/works/pastDrama/ieniwa_ura.jpg" alt="ieniwa裏" class="performance-img"> -->
+	  <!-- </div> -->
+	</div>
+  </section>
 
-<h2>Works<span>業務内容</span></h2>
-
-<figure class="c mb30">
-<img src="images/sample/sample1_big.jpg" alt="写真の説明を入れます">
-</figure>
-
-<table class="ta1">
-<caption>見出しが必要であればここを使います</caption>
-<tr>
-<th>サンプル見出し</th>
-<td>サンプルテキスト。</td>
-</tr>
-<tr>
-<th>サンプル見出し</th>
-<td>サンプルテキスト。</td>
-</tr>
-<tr>
-<th>サンプル見出し</th>
-<td>サンプルテキスト。</td>
-</tr>
-<tr>
-<th>サンプル見出し</th>
-<td>サンプルテキスト。</td>
-</tr>
-<tr>
-<th>サンプル見出し</th>
-<td>サンプルテキスト。</td>
-</tr>
-</table>
+  <section class="performance">
+	<div class="performance-inner">
+	  <div class="performance-text">
+		<h3>『果ての街のユキさん』</h3>
+		<p class="performance-summary">
+		  2025年〜連載中。公式Xにて、月の終わりごろに更新。<br>
+		  ユキさんが暮らす街では、不思議なことがたくさんあります。
+		</p>
+	  </div>
+	  <div class="performance-images">
+		<img src="images/works/comics/hateyuki_2.jpg" alt="果ての街のユキさん" class="performance-img">
+		<img src="images/works/comics/hateyuki_1.png" alt="果ての街のユキさん" class="performance-img">
+	  </div>
+	</div>
+  </section>
 
 </article>
 
@@ -106,6 +101,87 @@ if (OCwindowWidth() <= 800) {
 	open_close("menubar_hdr", "menubar-s");
 }
 </script>
+<!-- CSS（既存のstyle.cssに追加するとよりきれいに表示できます） -->
+<style>
+	.performance {
+		/* margin-bottom: 40px; */
+		padding-bottom: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+	.performance-inner {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+	.performance-images {
+		display: flex;
+		flex-direction: row; /* 横並びに変更 */
+		gap: 10px;
+		flex: 0 0 auto;
+	}
+	.performance-img {
+		width: 200px;
+		height: auto;
+		border-radius: 4px;
+	}
+	.performance-text {
+		flex: 1 1 0%;
+		min-width: 200px;
+	}
+	.performance-text h3 {
+		margin-top: 0;
+	}
+	.performance-summary {
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 600px) {
+		.performance-inner {
+		flex-direction: column;
+		}
+		.performance-images {
+		justify-content: center;
+		flex-wrap: wrap;
+		}
+		.performance-img {
+		width: 45%;
+		}
+	}
+	/* モーダル全体の背景 */
+	/* .modal {
+		display: none;
+		position: fixed;
+		z-index: 1000;
+		padding-top: 60px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0,0,0,0.8);
+	} */
+	
+	/* 拡大画像 */
+	/* .modal-content {
+		margin: auto;
+		display: block;
+		max-width: 90%;
+		max-height: 80vh;
+		box-shadow: 0 0 20px rgba(255,255,255,0.3);
+	} */
+	
+	/* 閉じるボタン */
+	/* .modal-close {
+		position: absolute;
+		top: 20px;
+		right: 35px;
+		color: #fff;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+	} */
+</style>
 
 </body>
 </html>
