@@ -16,15 +16,6 @@
 
 <header>
 <h1 id="logo"><a href="index.html"><img style="height: 32px" src="images/fuzzy_logo.png" alt="後手必殺ファジィ集合"></a></h1>
-<nav id="menubar">
-<ul>
-<li><a href="company.html">About us</a></li>
-<li class="current"><a href="works.html">Works</a></li>
-<li><a href="member.html">Member</a></li>
-<li><a href="news.html">News</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
 <ul class="icon">
 <!-- <li><a href="#"><img src="images/icon/icon_facebook.png" alt="Facebook"></a></li> -->
 <li><a href="https://x.com/gotehissatsu" target="_blank"><img src="images/icon/icon_x.png" alt="X"></a></li>
@@ -53,7 +44,7 @@
 <article>
 
 <h2>今日のKOTOBA<span id="time_message"></span></h2>
-<button class="center" onclick="get_kotoba()">KOTOBAをもらう</button>
+<button class="center" onclick="get_contents()">KOTOBAをもらう</button>
 
 <div style="text-align: center;" class="mt30" id="kotoba"></div>
 
@@ -129,9 +120,11 @@
 		return messages[random_index];
 	}
 
-	function get_kotoba() {
+	function get_contents() {
+		// 色コード取得
 		make_color_code()
 		
+		// メッセージ取得
 		const kotoba = document.getElementById("kotoba");
 		message = choice_message()
 		kotoba.textContent = `${message}`
@@ -144,7 +137,7 @@
 			throw new Error('error!!!');
 		}
 		messages = await response.json();   // JSONをパース
-		console.log(messages)
+		// console.log(messages)
 
 		} catch (error) {
 			console.error("データ読み込み失敗:", error);
