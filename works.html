@@ -20,47 +20,26 @@
   </head>
 
   <body>
-    <header>
-      <h1 id="logo">
-        <a href="index.html"
-          ><img
-            style="height: 32px"
-            src="images/fuzzy_logo.png"
-            alt="後手必殺ファジィ集合"
-        /></a>
-      </h1>
-      <nav id="menubar">
-        <ul>
-          <li><a href="company.html">About us</a></li>
-          <li><a href="nextDrama.html">Next</a></li>
-          <li class="current"><a href="works.html">Works</a></li>
-          <!-- <li><a href="member.html">Member</a></li>
-          <li><a href="news.html">News</a></li> -->
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <ul class="icon">
-        <!-- <li><a href="#"><img src="images/icon/icon_facebook.png" alt="Facebook"></a></li> -->
-        <li>
-          <a href="https://x.com/gotehissatsu" target="_blank"
-            ><img src="images/icon/icon_x.png" alt="X"
-          /></a>
-        </li>
-        <li>
-          <a href="#"
-            ><img src="images/icon/icon_instagram.png" alt="Instagram"
-          /></a>
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/@%E5%BE%8C%E6%89%8B%E5%BF%85%E6%AE%BA%E3%83%95%E3%82%A1%E3%82%B8%E3%82%A3%E9%9B%86%E5%90%88"
-            target="_blank"
-          >
-            <img src="images/icon/icon_youtube.png" alt="YouTube" />
-          </a>
-        </li>
-      </ul>
-    </header>
+    <!-- Header include -->
+    <div id="header-container"></div>
+
+    <script>
+      // Load header.html and set the current page
+      fetch("component/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+
+          // Highlight the current page
+          const currentPage = "works"; // Set the current page identifier
+          const links = document.querySelectorAll("#menubar li[data-page]");
+          links.forEach((link) => {
+            if (link.getAttribute("data-page") === currentPage) {
+              link.classList.add("current");
+            }
+          });
+        });
+    </script>
 
     <div id="contents">
       <section>
@@ -75,7 +54,7 @@
         </div>
 
         <div class="list">
-          <a href="pastDrama.html">
+          <a href="past-drama.html">
             <figure>
               <img src="images/works/past_drama_top.jpg" alt="past_drama" />
             </figure>
@@ -105,14 +84,6 @@
             <h4>動画</h4>
           </a>
         </div>
-
-        <!-- <div class="list">
-	<a href="others.html">
-	<figure><img src="images/sample/sample2.jpg" alt=""></figure>
-	<h4>その他</h4>
-	</a>
-</div> -->
-
         <div class="list">
           <a href="kotoba.html">
             <figure>
