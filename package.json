@@ -1,0 +1,13 @@
+{
+  "name": "fuzzysets",
+  "private": true,
+  "description": "後手必殺ファジィ集合 公式サイト",
+  "scripts": {
+    "lint": "eslint js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0"
+  }
+}

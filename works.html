@@ -17,29 +17,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/openclose.js"></script>
     <script src="js/fixmenu_pagetop.js"></script>
+    <script src="js/include.js"></script>
   </head>
 
   <body>
     <!-- Header include -->
-    <div id="header-container"></div>
-
-    <script>
-      // Load header.html and set the current page
-      fetch("component/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-container").innerHTML = data;
-
-          // Highlight the current page
-          const currentPage = "works"; // Set the current page identifier
-          const links = document.querySelectorAll("#menubar li[data-page]");
-          links.forEach((link) => {
-            if (link.getAttribute("data-page") === currentPage) {
-              link.classList.add("current");
-            }
-          });
-        });
-    </script>
+    <div id="header-container" data-page="works"></div>
 
     <div id="contents">
       <section>
@@ -47,8 +30,11 @@
         <p>後手必殺ファジイ集合の活動・コンテンツを紹介します。</p>
 
         <div class="list">
-          <a href="nextDrama.html">
-            <figure><img src="images/works/next_drama.jpg" alt="" /></figure>
+          <a href="next-drama.html">
+            <!-- <figure><img src="images/works/next_drama.jpg" alt="" /></figure> -->
+            <figure>
+              <img src="images/works/comming_soon.png" alt="comming soon" />
+            </figure>
             <h4>演劇・次回公演</h4>
           </a>
         </div>
@@ -63,19 +49,32 @@
         </div>
 
         <div class="list">
+          <a href="past-drama.html">
+            <figure>
+              <img src="images/works/past_drama_top.jpg" alt="past_drama" />
+            </figure>
+            <h4>メンバー活動情報</h4>
+          </a>
+        </div>
+
+        <div class="list">
           <a href="comics.html">
             <figure><img src="images/works/comics_top.jpg" alt="" /></figure>
             <h4>漫画</h4>
           </a>
         </div>
-
-        <!-- <div class="list">
-	<a href="nobels.html">
-	<figure><img src="images/sample/sample1.jpg" alt=""></figure>
-	<h4>文章</h4>
-	</a>
-</div> -->
-
+        <div class="list">
+          <a href="comics.html">
+            <figure><img src="images/works/podcast.jpg" alt="" /></figure>
+            <h4>Podcast『奔放な私たち』</h4>
+          </a>
+        </div>
+        <div class="list">
+          <a href="nobels.html">
+            <figure><img src="images/sample/sample1.jpg" alt="" /></figure>
+            <h4>文章</h4>
+          </a>
+        </div>
         <div class="list">
           <a href="movies.html">
             <figure>
@@ -140,29 +139,7 @@
     </div>
     <!--/#contents-->
 
-    <footer>
-      <small
-        >Copyright&copy; <a href="index.html">後手必殺ファジィ集合</a> All
-        Rights Reserved.</small
-      >
-      <span class="pr"
-        ><a href="./index.html" target="_blank"
-          >《Web Design:Template-Party》</a
-        ></span
-      >
-    </footer>
-
-    <!--ページの上部に戻る「↑」ボタン-->
-    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
-
-    <!--メニュー開閉ボタン-->
-    <div id="menubar_hdr" class="close"></div>
-
-    <!--メニューの開閉処理条件設定　800px以下-->
-    <script>
-      if (OCwindowWidth() <= 800) {
-        open_close("menubar_hdr", "menubar-s");
-      }
-    </script>
+    <!-- Footer include -->
+    <div id="footer-container"></div>
   </body>
 </html>

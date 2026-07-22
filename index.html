@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/openclose.js"></script>
     <script src="js/fixmenu_pagetop.js"></script>
+    <script src="js/include.js"></script>
   </head>
 
   <body class="home">
@@ -55,25 +56,15 @@
     <nav id="menubar-s">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="news.html">News</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="next-drama.html">Next</a></li>
         <li><a href="works.html">Works</a></li>
-        <li><a href="company.html">About us</a></li>
         <li><a href="member.html">Member</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <!--ページの上部に戻る「↑」ボタン-->
-    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
-
-    <!--メニュー開閉ボタン-->
-    <div id="menubar_hdr" class="close"></div>
-
-    <!--メニューの開閉処理条件設定　800px以下-->
-    <script>
-      if (OCwindowWidth() <= 800) {
-        open_close("menubar_hdr", "menubar-s");
-      }
-    </script>
+    <!-- Footer include -->
+    <div id="footer-container"></div>
   </body>
 </html>
