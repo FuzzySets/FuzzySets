@@ -220,6 +220,55 @@ header .icon a:hover {
 	padding: 10px 0;	/*上下、左右への余白*/
 }
 
+/*memberブロック（member.htmlで使用）
+---------------------------------------------------------------------------*/
+/*各メンバーカードの指定*/
+.member {
+	position: relative;
+	float: left;	/*左に回り込み*/
+	width: 30%;			/*幅*/
+	margin-left: 2.5%;	/*左に空けるスペース*/
+	margin-bottom: 30px;	/*下に空けるスペース*/
+	background: #111;	/*背景色*/
+	border: 1px solid #333;	/*枠線の幅、線種、色*/
+	border-radius: 6px;	/*角丸のサイズ*/
+	overflow: hidden;
+}
+/*写真部分（figure）。正方形にトリミングして表示。*/
+.member figure {
+	width: 100%;
+	aspect-ratio: 1 / 1;	/*正方形比率*/
+	overflow: hidden;
+	background: #222;	/*画像未設定時の背景色*/
+}
+.member figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;	/*はみ出た部分をトリミング*/
+}
+/*名前（タイトル）*/
+.member .m-name {
+	margin: 0;
+	padding: 15px 15px 5px;
+	font-size: 20px;	/*文字サイズ*/
+	text-align: center;	/*センタリング*/
+	letter-spacing: 0.05em;
+}
+/*肩書き・役割*/
+.member .m-role {
+	padding: 0 15px 10px;
+	text-align: center;	/*センタリング*/
+	font-size: 12px;	/*文字サイズ*/
+	color: #ffcc00;		/*文字色*/
+	letter-spacing: 0.1em;
+}
+/*詳細説明*/
+.member .m-detail {
+	padding: 0 15px 20px;
+	font-size: 13px;	/*文字サイズ*/
+	line-height: 1.8;
+}
+
 /*footerブロック
 ---------------------------------------------------------------------------*/
 /*footerブロック*/
@@ -503,6 +552,18 @@ header .icon {
 	padding: 100px 3% 50px;	/*上下、左右へのブロック内の余白*/
 }
 
+/*memberブロック（member.htmlで使用）
+---------------------------------------------------------------------------*/
+/*2列に変更*/
+.member {
+	width: 45%;
+	margin-left: 5%;
+}
+.member:nth-child(2n+1) {
+	clear: left;
+	margin-left: 0;
+}
+
 /*news.html
 ---------------------------------------------------------------------------*/
 /*日付設定*/
@@ -590,6 +651,14 @@ body {
 /*h4タグ*/
 .list h4 {
 	padding: 0;
+}
+
+/*memberブロック（member.htmlで使用）
+---------------------------------------------------------------------------*/
+/*1列に変更*/
+.member {
+	width: 100%;
+	margin-left: 0;
 }
 
 /*テーブル（ta1）

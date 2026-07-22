@@ -13,226 +13,72 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/openclose.js"></script>
     <script src="js/fixmenu_pagetop.js"></script>
+    <script src="js/include.js"></script>
   </head>
 
   <body>
     <!-- Header include -->
-    <div id="header-container"></div>
+    <div id="header-container" data-page="member"></div>
 
-    <script>
-      // Load header.html and set the current page
-      fetch("component/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-container").innerHTML = data;
-
-          // Highlight the current page
-          const currentPage = "member"; // Set the current page identifier
-          const links = document.querySelectorAll("#menubar li[data-page]");
-          links.forEach((link) => {
-            if (link.getAttribute("data-page") === currentPage) {
-              link.classList.add("current");
-            }
-          });
-        });
-    </script>
+    <!-- template記載の注意事項 -->
+    <!-- 1人分の枠は下の.memberブロックをまるごとコピー＆ペーストして増やして下さい。
+    写真は正方形にトリミングされて表示されます（object-fit:cover）ので、
+    画像自体が正方形でなくてもズレません。 -->
 
     <div id="contents">
       <section>
         <h2>構成員<span>member</span></h2>
 
-        <div>ただいま準備中です。しばらくお待ちください。</div>
+        <div class="member">
+          <figure>
+            <img src="images/member/sample.jpg" alt="林蒼真" />
+          </figure>
+          <h3 class="m-name">林蒼真</h3>
+          <p class="m-role">代表・脚本・演出</p>
+          <div class="m-detail">
+            ここに説明など入れて下さい。サンプルテキスト。ここに説明など入れて下さい。サンプルテキスト。
+          </div>
+        </div>
 
-        <!-- <table class="ta1">
-	<caption>林蒼真</caption>
-	<tr>
-		<th>代表</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>脚本</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>演出</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>舞台・小道具</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>文学修士</th>
-		<td>映画・演劇の演出表現について研究</td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table>
+        <div class="member">
+          <figure>
+            <img src="images/member/sample.jpg" alt="長谷川健太" />
+          </figure>
+          <h3 class="m-name">長谷川健太</h3>
+          <p class="m-role">役者・衣装</p>
+          <div class="m-detail">
+            ここに説明など入れて下さい。サンプルテキスト。ここに説明など入れて下さい。サンプルテキスト。
+          </div>
+        </div>
 
-<table class="ta1">
-	<caption>長谷川健太</caption>
-	<tr>
-		<th>役者</th>
-		<td>北洋銀行TVCM、～～「」、～～「」、～～「」、～～「」、～～「」、～～「」、～～「」</td>
-	</tr>
-	<tr>
-		<th>衣装</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>学芸員</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>青年海外協力隊</th>
-		<td>ペルー支部開設予定</td>
-	</tr>
-	<tr>
-		<th>文学修士</th>
-		<td>中国における年号についての研究</td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table>
+        <div class="member">
+          <figure>
+            <img src="images/member/sample.jpg" alt="白石光" />
+          </figure>
+          <h3 class="m-name">白石光</h3>
+          <p class="m-role">役者・衣装</p>
+          <div class="m-detail">
+            ここに説明など入れて下さい。サンプルテキスト。ここに説明など入れて下さい。サンプルテキスト。
+          </div>
+        </div>
 
-<table class="ta1">
-	<caption>白石光</caption>
-	<tr>
-		<th>役者</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>衣装</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>情報宣伝</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>制作</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>教育学修士課程</th>
-		<td></td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table>
-
-<table class="ta1">
-	<caption>鈴木優子</caption>
-	<tr>
-		<th>役者</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>制作</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>システムエンジニア</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>農学部学士</th>
-		<td>砂防について研究</td>
-	</tr>
-	<tr>
-		<th>「隣人はマジシャン」作者</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table>
-
-<table class="ta1">
-	<caption>大塚愛</caption>
-	<tr>
-		<th>役者</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>制作</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>システムエンジニア</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>文学部学士</th>
-		<td>意味・語用論、助動詞「か」について研究</td>
-	</tr>
-	<tr>
-		<th></th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table>
-
-<table class="ta1">
-	<caption>プレぽん</caption>
-	<tr>
-		<th>文章</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>脚本・演出</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>理学部修士</th>
-		<td>意味・語用論、助動詞「か」について研究</td>
-	</tr>
-	<tr>
-		<th>魚好き</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-	<tr>
-		<th>見出し</th>
-		<td>ここに説明など入れて下さい。サンプルテキスト。</td>
-	</tr>
-</table> -->
+        <!-- 以下、増やす場合はこの.memberブロックをコピーして使って下さい
+        <div class="member">
+          <figure>
+            <img src="images/member/sample.jpg" alt="名前" />
+          </figure>
+          <h3 class="m-name">名前</h3>
+          <p class="m-role">肩書き・役割</p>
+          <div class="m-detail">
+            ここに説明など入れて下さい。サンプルテキスト。
+          </div>
+        </div>
+        -->
       </section>
     </div>
     <!--/#contents-->
 
-    <footer>
-      <small
-        >Copyright&copy; <a href="index.html">後手必殺ファジィ集合</a> All
-        Rights Reserved.</small
-      >
-      <span class="pr"
-        ><a href="./index.html" target="_blank"
-          >《Web Design:Template-Party》</a
-        ></span
-      >
-    </footer>
-
-    <!--ページの上部に戻る「↑」ボタン-->
-    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
-
-    <!--メニュー開閉ボタン-->
-    <div id="menubar_hdr" class="close"></div>
-
-    <!--メニューの開閉処理条件設定　800px以下-->
-    <script>
-      if (OCwindowWidth() <= 800) {
-        open_close("menubar_hdr", "menubar-s");
-      }
-    </script>
+    <!-- Footer include -->
+    <div id="footer-container"></div>
   </body>
 </html>

@@ -10,41 +10,13 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="js/openclose.js"></script>
 <script src="js/fixmenu_pagetop.js"></script>
+<script src="js/include.js"></script>
 </head>
 
 <body>
 
     <!-- Header include -->
-    <div id="header-container"></div>
-
-    <script>
-      // Load header.html and set the current page
-      fetch("component/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-container").innerHTML = data;
-
-          // Highlight the current page
-          const currentPage = "works"; // Set the current page identifier
-          const links = document.querySelectorAll("#menubar li[data-page]");
-          links.forEach((link) => {
-            if (link.getAttribute("data-page") === currentPage) {
-              link.classList.add("current");
-            }
-          });
-        });
-    </script>
-
-<nav id="menubar-s">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="news.html">News</a></li>
-<li><a href="works.html">Works</a></li>
-<li><a href="company.html">About us</a></li>
-<li><a href="member.html">Member</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
+    <div id="header-container" data-page="works"></div>
 
 <div id="contents">
 
@@ -65,8 +37,13 @@
 			<div class="performance-text">
 			<h3>vol.4 『ただただなる人々』</h3>
 			<p class="performance-summary">
-				星と夜の境界を描いた幻想的な物語。音と光が織りなす静寂の世界を体感せよ。
+				脚本・演出 林蒼真(後手必殺ファジィ集合)
 			</p>
+			<p class="performance-overview">
+				日時：2026年3月7日（土）～8日（日）<br>
+				場所：演劇専用小劇場BLOCH（札幌）
+			</p>
+			<p class="performance-detail-link"><a href="vol4-tadatada.html">詳細はこちら →</a></p>
 			</div>
 		</div>
 	</section>
@@ -132,22 +109,10 @@
 </div>
 <!--/#contents-->
 
-<footer>
-<small>Copyright&copy; <a href="index.html">後手必殺ファジィ集合</a> All Rights Reserved.</small>
-<span class="pr"><a href="./index.html" target="_blank">《Web Design:Template-Party》</a></span>
-</footer>
-
-<!--ページの上部に戻る「↑」ボタン-->
-<p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
-
-<!--メニュー開閉ボタン-->
-<div id="menubar_hdr" class="close"></div>
+<!-- Footer include -->
+<div id="footer-container"></div>
 
 <script>
-	// メニューの開閉処理条件設定　800px以下
-	if (OCwindowWidth() <= 800) {
-		open_close("menubar_hdr", "menubar-s");
-	}
 	// モーダル関連の変数
 	const modal = document.getElementById("image-modal");
 	const modalImg = document.getElementById("modal-img");
@@ -204,6 +169,14 @@
 	.performance-summary {
 		font-size: 1rem;
 		line-height: 1.6;
+	}
+	.performance-overview {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: #ccc;
+	}
+	.performance-detail-link a {
+		font-size: 0.9rem;
 	}
 	@media (max-width: 600px) {
 		.performance-inner {
