@@ -20,18 +20,10 @@
     <!-- Header include -->
     <div id="header-container"></div>
 
-    <!-- 導入バナー：写真を数秒ごとに切り替えつつ、上に団体ロゴ・団体名を重ねて表示 -->
+    <!-- 導入バナー：images/hero/フォルダの画像を数秒ごとに切り替えつつ、上に団体ロゴ・団体名を重ねて表示 -->
+    <!-- 画像はdata/hero_slides.jsonから読み込む（images/hero/に画像を置くだけで内容を差し替えられる） -->
     <section id="hero-intro">
-      <figure>
-        <img
-          class="hero-intro-slide is-active"
-          src="images/company.jpg"
-          alt="後手必殺ファジィ集合"
-        />
-        <img class="hero-intro-slide" src="images/works.jpg" alt="" />
-        <img class="hero-intro-slide" src="images/member.jpg" alt="" />
-        <img class="hero-intro-slide" src="images/contact.jpg" alt="" />
-      </figure>
+      <figure id="hero-intro-figure"></figure>
       <div class="hero-intro-overlay">
         <img class="hero-intro-logo" src="images/fuzzy_logo.png" alt="" />
         <span class="hero-intro-title">後手必殺ファジィ集合</span>
@@ -152,8 +144,19 @@
           '<p><a href="works/next-drama.html">詳しくはこちら</a></p>';
       }
 
-      function initHeroSlideshow() {
-        const slides = document.querySelectorAll(".hero-intro-slide");
+      function renderHeroSlides(paths) {
+        const figure = document.getElementById("hero-intro-figure");
+        if (!paths || paths.length === 0) return;
+
+        paths.forEach(function (src, index) {
+          const img = document.createElement("img");
+          img.className = "hero-intro-slide" + (index === 0 ? " is-active" : "");
+          img.src = src;
+          img.alt = index === 0 ? "後手必殺ファジィ集合" : "";
+          figure.appendChild(img);
+        });
+
+        const slides = figure.querySelectorAll(".hero-intro-slide");
         if (slides.length <= 1) return;
         let current = 0;
         setInterval(function () {
@@ -168,7 +171,9 @@
         loadJSON("data/next_drama.json")
           .then(renderNextDrama)
           .catch(console.error);
-        initHeroSlideshow();
+        loadJSON("data/hero_slides.json")
+          .then(renderHeroSlides)
+          .catch(console.error);
       });
     </script>
   </body>
