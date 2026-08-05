@@ -10,10 +10,10 @@
       content="恵庭を中心に、東京・千葉・長野・札幌・帯広・神戸・熊本・ペルー(予定)に支部を構える(2025/07現在)クリエイター集団"
     />
     <meta name="keywords" content="演劇,漫画,ラジオ,小説,動画,ファジィ" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/openclose.js"></script>
-    <script src="js/fixmenu_pagetop.js"></script>
-    <script src="js/include.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/openclose.js"></script>
+    <script src="../js/fixmenu_pagetop.js"></script>
+    <script src="../js/include.js"></script>
   </head>
 
   <body>
@@ -31,7 +31,7 @@
           <img
             class="mt30"
             style="height: 20rem"
-            src="images/works/kotoba/kotoba_pic1.jpg"
+            src="../images/works/kotoba/kotoba_pic1.jpg"
             alt="今日のKOTOBA"
           />
         </figure>
@@ -99,7 +99,7 @@
 
       async function loadData() {
         try {
-          const response = await fetch("data/kotoba_message.json"); // JSONファイルを読み込む
+          const response = await fetch("../data/kotoba_message.json"); // JSONファイルを読み込む
           if (!response.ok) {
             throw new Error("error!!!");
           }

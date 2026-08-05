@@ -14,6 +14,8 @@
 /*画像全体を囲むブロック*/
 #mainimg {
   background: #000;
+  height: 60vh; /*トップページの高さ。この分だけで、下にお知らせ等をスクロールして表示できる。*/
+  min-height: 320px;
 }
 #mainimg ul {
   height: 100%;

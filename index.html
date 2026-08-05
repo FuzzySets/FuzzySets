@@ -17,20 +17,68 @@
   </head>
 
   <body class="home">
-    <header>
-      <h1 id="logo">
-        <a href="./index.html"
-          ><img
-            style="height: 32px"
-            src="images/fuzzy_logo.png"
-            alt="後手必殺ファジィ集合"
-        /></a>
-      </h1>
-      <!-- <p id="news">
-        <span class="newicon">お知らせ</span
-        ><a href="news.html">ホームページを公開しました。</a>
-      </p> -->
-    </header>
+    <!-- Header include -->
+    <div id="header-container"></div>
+
+    <!-- 導入バナー：写真を数秒ごとに切り替えつつ、上に団体ロゴ・団体名を重ねて表示 -->
+    <section id="hero-intro">
+      <figure>
+        <img
+          class="hero-intro-slide is-active"
+          src="images/company.jpg"
+          alt="後手必殺ファジィ集合"
+        />
+        <img class="hero-intro-slide" src="images/works.jpg" alt="" />
+        <img class="hero-intro-slide" src="images/member.jpg" alt="" />
+        <img class="hero-intro-slide" src="images/contact.jpg" alt="" />
+      </figure>
+      <div class="hero-intro-overlay">
+        <img class="hero-intro-logo" src="images/fuzzy_logo.png" alt="" />
+        <span class="hero-intro-title">後手必殺ファジィ集合</span>
+      </div>
+    </section>
+
+    <div id="contents">
+      <section id="about-us">
+        <h2>後手必殺ファジイ集合とは？<span>About us</span></h2>
+
+        <h3>演劇をメインコンテンツに、さまざまなコンテンツを作っています。</h3>
+        <p>
+          2020年頃、自粛生活の悲しみから、代表による選り好みのメンバーによって結成された《表現企画》。<br />
+          凝り固まった手段に囚われずにあらゆる表現方法を模索しようとする《ファジィ的創作》をモットーとしている。
+        </p>
+      </section>
+
+      <section id="about-us-history">
+        <h2>過去公演</h2>
+        <h3>『ieniwa()』</h3>
+        <p>
+          2024年3月22日（金）〜3月24日（日） @vogue gallery<br />
+          【脚本演出】林蒼真
+          【出演】白石光・長谷川健太・金澤龍汰郎・髙田まどか（EGG）
+        </p>
+
+        <h3>『長谷川健太殺人事件 ~It's a Miniature Garden's God~』</h3>
+        <p>
+          2023年3月24日（金）〜3月26日（日） @レッドベリースタジオ<br />
+          【脚本演出】林蒼真
+          【出演】星加悠介・梁知生・金澤龍汰郎・白石光・鈴木優子・長谷川健太
+        </p>
+      </section>
+
+      <section id="next-drama-summary">
+        <h2>次回公演<span>Next</span></h2>
+        <div id="next-drama-body"></div>
+      </section>
+
+      <section id="news">
+        <h2>お知らせ<span>News</span></h2>
+        <div id="new">
+          <dl id="news-list"></dl>
+        </div>
+      </section>
+    </div>
+    <!--/#contents-->
 
     <nav id="mainimg">
       <ul>
@@ -53,18 +101,75 @@
       </ul>
     </nav>
 
-    <nav id="menubar-s">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about-us.html">About us</a></li>
-        <li><a href="next-drama.html">Next</a></li>
-        <li><a href="works.html">Works</a></li>
-        <li><a href="member.html">Member</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
     <!-- Footer include -->
     <div id="footer-container"></div>
+
+    <script>
+      async function loadJSON(path) {
+        const response = await fetch(path);
+        if (!response.ok) {
+          throw new Error(`${path} の読み込みに失敗しました`);
+        }
+        return response.json();
+      }
+
+      function renderNews(newsList) {
+        const section = document.getElementById("news");
+        const dl = document.getElementById("news-list");
+        if (!newsList || newsList.length === 0) {
+          section.style.display = "none";
+          return;
+        }
+        newsList.forEach(function (item) {
+          const dt = document.createElement("dt");
+          dt.textContent = item.date;
+          const dd = document.createElement("dd");
+          if (item.url) {
+            const a = document.createElement("a");
+            a.href = item.url;
+            a.target = "_blank";
+            a.textContent = item.text;
+            dd.appendChild(a);
+          } else {
+            dd.textContent = item.text;
+          }
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+        });
+      }
+
+      function renderNextDrama(drama) {
+        const body = document.getElementById("next-drama-body");
+        if (!drama || drama.status === "tba") {
+          body.innerHTML =
+            "<p>次回公演は現在企画・準備中です。詳細が決まり次第お知らせします。</p>" +
+            '<p><a href="works/next-drama.html">次回公演ページを見る</a></p>';
+          return;
+        }
+        body.innerHTML =
+          `<p>${drama.title}</p>` +
+          `<p>${drama.period}</p>` +
+          '<p><a href="works/next-drama.html">詳しくはこちら</a></p>';
+      }
+
+      function initHeroSlideshow() {
+        const slides = document.querySelectorAll(".hero-intro-slide");
+        if (slides.length <= 1) return;
+        let current = 0;
+        setInterval(function () {
+          slides[current].classList.remove("is-active");
+          current = (current + 1) % slides.length;
+          slides[current].classList.add("is-active");
+        }, 4000); // 4秒ごとに切り替え
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadJSON("data/news.json").then(renderNews).catch(console.error);
+        loadJSON("data/next_drama.json")
+          .then(renderNextDrama)
+          .catch(console.error);
+        initHeroSlideshow();
+      });
+    </script>
   </body>
 </html>
