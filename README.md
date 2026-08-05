@@ -60,4 +60,31 @@ npm run generate:hero-slides
 
 ## デプロイについて
 
-`Stage`ブランチにpushされると、GitHub Actionsが自動的にGitHub Pagesへデプロイします(`.github/workflows/deploy.yml`)。開発用ファイル(`node_modules/`・`scripts/`・`inProgress/`など)は公開対象から除外されます。
+`Stage`ブランチにpush(PRのマージを含む)されると、GitHub Actionsが自動的にGitHub Pagesへデプロイします(`.github/workflows/deploy.yml`)。
+
+前提として、リポジトリのSettings → Pages → Build and deploymentで、**Source が「GitHub Actions」になっている必要があります**(「Deploy from a branch」ではデプロイされません)。
+
+### いつ実行されるか
+
+```yaml
+on:
+  push:
+    branches: [Stage]
+  workflow_dispatch:
+```
+
+- `Stage`ブランチへのpush(マージ含む)のたびに自動実行されます。他のブランチへのpushでは動きません。
+- `workflow_dispatch`により、GitHubのActionsタブから手動実行することもできます。
+
+### 何をしているか(build → deploy の2ジョブ構成)
+
+1. **build ジョブ**(公開する中身の準備)
+   - リポジトリを取得
+   - `node scripts/generate-hero-slides.js`を実行し、`images/hero/`フォルダの中身から`data/hero_slides.json`を最新化
+   - 公開に不要なファイル(`node_modules/`・`scripts/`・`.github/`・`README.md`・`CLAUDE.md`・`inProgress/`など)を除いたコピー(`dist/`)を作成
+   - `dist/`を「Pages用の成果物」としてアップロード(この時点ではまだ公開されない)
+2. **deploy ジョブ**(実際の公開)
+   - build完了後(`needs: build`)に実行され、アップロードされた成果物を実際にGitHub Pagesとして公開する
+   - このジョブだけがGitHubの「Deployments」履歴に記録される(`environment: github-pages`を指定しているため)
+
+使用しているアクション(`actions/checkout`・`actions/setup-node`・`actions/configure-pages`・`actions/upload-pages-artifact`・`actions/deploy-pages`)はすべてGitHub公式が提供しているものです。
