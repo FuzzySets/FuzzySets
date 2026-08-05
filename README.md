@@ -44,3 +44,20 @@ VS Codeで開くと、`.vscode/settings.json`の設定により、このプロ�
 - `data/` … 一部ページ(今日のKOTOBAなど)が`fetch`で読み込むJSONデータ
 
 新しいページを追加する場合は、`<head>`に`js/include.js`を読み込み、`<div id="header-container" data-page="xxx"></div>`と`<div id="footer-container"></div>`を配置すれば、ヘッダー・フッターが自動的に反映されます(`xxx`は`component/header.html`内の`data-page`と対応させてください)。
+
+## トップページの写真スライドショー
+
+トップページのヒーローバナーは、`images/hero/`フォルダに置かれた画像を自動的に読み込んで数秒ごとに切り替えます。表示する写真を変えたい場合は、コードを触らず`images/hero/`フォルダの中の画像を追加・削除するだけで構いません。
+
+- 対応拡張子: `.jpg` `.jpeg` `.png` `.webp` `.gif`
+- 表示順: ファイル名順
+
+画像フォルダの中身から一覧(`data/hero_slides.json`)を生成しているのは`scripts/generate-hero-slides.js`です。本番(`Stage`ブランチへのpush)ではGitHub Actions(`.github/workflows/deploy.yml`)が自動実行しますが、ローカルプレビューで変更を確認したい場合は以下を実行してください。
+
+```sh
+npm run generate:hero-slides
+```
+
+## デプロイについて
+
+`Stage`ブランチにpushされると、GitHub Actionsが自動的にGitHub Pagesへデプロイします(`.github/workflows/deploy.yml`)。開発用ファイル(`node_modules/`・`scripts/`・`inProgress/`など)は公開対象から除外されます。
